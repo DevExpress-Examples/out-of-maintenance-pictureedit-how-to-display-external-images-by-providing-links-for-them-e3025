@@ -11,6 +11,9 @@ namespace GraphicsEditor
     class GraphicsEditViewInfo : PictureEditViewInfo
     {
         public GraphicsEditViewInfo(RepositoryItem item) : base(item) { }
+        Image oldImage = null;
+
+        new RepositoryItemGraphicsEdit Item { get { return base.Item as RepositoryItemGraphicsEdit; } }
 
         public override object EditValue
         {
@@ -20,11 +23,8 @@ namespace GraphicsEditor
             }
             set
             {
-                if (value != null && value.GetType() == typeof(System.String))
-                {
-                    try { base.EditValue = new Bitmap(value.ToString()); }
-                    catch { base.EditValue = Item.ErrorImage; }
-                }
+                if(value != null && value.GetType() == typeof(System.String))
+                    base.EditValue = Item.GetImage(value.ToString());
                 else
                     base.EditValue = value;
             }
