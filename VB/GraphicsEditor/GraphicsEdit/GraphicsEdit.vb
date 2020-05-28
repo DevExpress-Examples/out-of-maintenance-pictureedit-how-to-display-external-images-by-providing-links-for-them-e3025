@@ -1,5 +1,4 @@
-﻿Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.Linq
 Imports System.Text
@@ -9,6 +8,7 @@ Imports DevExpress.XtraEditors
 Namespace GraphicsEditor
 	Friend Class GraphicsEdit
 		Inherits PictureEdit
+
 		Shared Sub New()
 			RepositoryItemGraphicsEdit.RegisterGraphicsEditor()
 		End Sub
@@ -19,7 +19,7 @@ Namespace GraphicsEditor
 			End Get
 		End Property
 
-		<DesignerSerializationVisibility(DesignerSerializationVisibility.Content)> _
+		<DesignerSerializationVisibility(DesignerSerializationVisibility.Content)>
 		Public Shadows ReadOnly Property Properties() As RepositoryItemGraphicsEdit
 			Get
 				Return TryCast(MyBase.Properties, RepositoryItemGraphicsEdit)
